@@ -1,0 +1,17 @@
+{
+  "id_field": "invoice_id",
+  "dayfirst": true,
+  "default_type": "auto",
+  "fields": {
+    "date": { "type": "date" },
+    "total": { "type": "money", "tolerance": 0.01 },
+    "vendor.name": { "type": "string", "mode": "fuzzy", "threshold": 0.8 },
+    "vendor.contact_name": { "type": "name", "subset_ok": true },
+    "paid": { "type": "bool" },
+    "tags": { "type": "string" },
+    "line_items[].sku": { "type": "string" },
+    "line_items[].description": { "type": "string", "mode": "fuzzy", "threshold": 0.8 },
+    "line_items[].qty": { "type": "number" },
+    "line_items[].unit_price": { "type": "money", "tolerance": 0.01 }
+  }
+}

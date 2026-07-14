@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="620" viewBox="0 0 940 620" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14">
+  <!-- Terminal transcript of a real run of `fieldscore score` and
+       `fieldscore explain` on examples/. Text is copied verbatim from an
+       actual execution. -->
+  <rect width="940" height="620" rx="10" fill="#0d1117"/>
+  <rect width="940" height="34" rx="10" fill="#161b22"/>
+  <rect y="20" width="940" height="14" fill="#161b22"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="17" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="17" r="6" fill="#28c840"/>
+  <text x="470" y="22" fill="#8b949e" text-anchor="middle" font-size="12">fieldscore — per-field precision/recall for extraction output</text>
+  <g fill="#c9d1d9" xml:space="preserve">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> fieldscore score gold.jsonl pred.jsonl --config fields.json</text>
+    <text x="24" y="88" fill="#79c0ff">field                     type    gold  pred  correct  precision  recall     f1</text>
+    <text x="24" y="110" fill="#30363d">-------------------------------------------------------------------------------</text>
+    <text x="24" y="132">date                      date       5     5        5      <tspan fill="#7ee787">1.000   1.000  1.000</tspan></text>
+    <text x="24" y="154">line_items[].description  string     6     6        6      <tspan fill="#7ee787">1.000   1.000  1.000</tspan></text>
+    <text x="24" y="176">line_items[].qty          number     6     6        6      <tspan fill="#7ee787">1.000   1.000  1.000</tspan></text>
+    <text x="24" y="198">line_items[].sku          string     6     6        6      <tspan fill="#7ee787">1.000   1.000  1.000</tspan></text>
+    <text x="24" y="220">line_items[].unit_price   money      6     6        6      <tspan fill="#7ee787">1.000   1.000  1.000</tspan></text>
+    <text x="24" y="242">paid                      bool       5     5        5      <tspan fill="#7ee787">1.000   1.000  1.000</tspan></text>
+    <text x="24" y="264">tags                      string     8     8        7      <tspan fill="#d29922">0.875   0.875  0.875</tspan></text>
+    <text x="24" y="286">total                     money      5     5        4      <tspan fill="#d29922">0.800   0.800  0.800</tspan></text>
+    <text x="24" y="308">vendor.contact_name       name       5     4        2      <tspan fill="#f85149">0.500   0.400  0.444</tspan></text>
+    <text x="24" y="330">vendor.name               string     5     5        4      <tspan fill="#d29922">0.800   0.800  0.800</tspan></text>
+    <text x="24" y="352" fill="#30363d">-------------------------------------------------------------------------------</text>
+    <text x="24" y="374" fill="#79c0ff">micro avg                           57    56       51      0.911   0.895  0.903</text>
+    <text x="24" y="396" fill="#79c0ff">macro avg                                                  0.897   0.887  0.892</text>
+    <text x="24" y="422" fill="#8b949e">records: 5 scored (5 gold, 5 predicted)</text>
+    <text x="24" y="460"><tspan fill="#7ee787">$</tspan> fieldscore explain gold.jsonl pred.jsonl --config fields.json</text>
+    <text x="24" y="486" fill="#79c0ff">record inv-004</text>
+    <text x="24" y="508">  <tspan fill="#f85149">wrong</tspan>    total  [money]  gold ¥50,000 != pred ¥5,000</text>
+    <text x="24" y="530">  <tspan fill="#d29922">missing</tspan>  tags  [string]  gold net30 not extracted</text>
+    <text x="24" y="552" fill="#79c0ff">record inv-005</text>
+    <text x="24" y="574">  <tspan fill="#f85149">wrong</tspan>    vendor.contact_name  [name]  gold Virginia Potts != pred Pepper Potts</text>
+    <text x="24" y="602" fill="#8b949e">"March 5, 2024" == 2024-03-05 · "EUR 2.000,00" == €2,000.00 · "Yuki Sato" == Sato Yuki</text>
+  </g>
+</svg>
